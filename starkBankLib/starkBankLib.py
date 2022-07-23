@@ -3,7 +3,6 @@
 
 
 # Internal python importation
-import imp
 import time
 from datetime import datetime
 from random import randint
@@ -21,7 +20,6 @@ from IJGeneralUsagePackage.IJGeneralLib import (
 # Thi project importation
 from utils.config_contants_paths import (
     DAYS_OF_DUE_DATE,
-    DEFAULT_PERSON_NAME,
     TOTAL_TRIES,
     WEBHOOK_WAIT_TIME
 )
@@ -69,7 +67,7 @@ class StarkBank(object):
         return
 
 
-    def create_starkbank_keys(self, key_folder=''):
+    def create_starkbank_keys(self, key_folder=None):
         print_log(f'CREATING PRIVATE KEY AND PUBLIC KEY')
 
         if key_folder:
@@ -120,6 +118,7 @@ class StarkBank(object):
                 valid_cpf = False
 
         print_log(f'CPF VALIDATION DONE')
+
         return valid_cpf
 
 
@@ -197,7 +196,7 @@ class StarkBank(object):
 
 
     def get_balance(self):
-        """ # Showing Actual Balance """
+        """ ### Showing Actual Balance """
 
         print_log('SHOWING ACTUAL BALANCE')
 
@@ -252,7 +251,7 @@ class StarkBank(object):
 
 
     def make_transfer_flask(self, all_invoices):
-        """# Transfer invoices paid
+        """# Transfer invoices paid in Flask app
         ---
 
         ##### Transfer all invoices paid whenever endpoint starkbank_webhook target by NGROK POST by a stark banck apid webhook event and still able to be tranfered to Stark Bank account
@@ -575,7 +574,7 @@ class StarkBank(object):
                 invoices_acctually_paid.append(
                     webhook_event_callback.get(str(one_invoice_id))
                 )
-        else:                      # all invoices already created and paid
+        else:                      # all invoices already and paid
             for one_invoice_id in list(webhook_event_callback.keys()):
 
                 invoices_acctually_paid.append(
@@ -661,7 +660,7 @@ class StarkBank(object):
 
     def create_webhook(self, webhook_url):
 
-        print_log('NEW WEBHOOK CREATION')
+        print_log('NEW WEBHOOK CREATION...')
 
         try:
             new_webhook = starkbank.webhook.create(
@@ -672,11 +671,11 @@ class StarkBank(object):
             )
         except Exception as error:
             print_log(f'EXCEPTION {error}')
-            return
 
         else:
-            print_log('WEBHOOK CREATE DONE')
-            print_log(f'WEBHOOK ID: {new_webhook.id}')
+            print_log(f'NEW WEBHOOK ID: {new_webhook.id}')
+        finally:
+            print_log('\n\n NEW WEBHOOK CREATION: FAILED/DONE')
             return
 
 

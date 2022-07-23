@@ -70,8 +70,6 @@ def starkBankRunApp(round_):
 
     stkb.create_starkbank_project_user()
 
-    stkb.get_balance()
-
     if round_ == 1:
         stkb.make_events_delivered()
 
