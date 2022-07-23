@@ -3,7 +3,6 @@ Instance config file
 """
 
 
-
 import os
 
 DEBUG = True
