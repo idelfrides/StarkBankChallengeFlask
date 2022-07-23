@@ -38,9 +38,9 @@ NGROK_API_KEY = '<NGROK_API_KEY>'
 
 # NOTE: make some changes to these two constants to see app working
 
-TOTAL_ROUNDS = 3    # FOR REAL 8 | FOR TESTING USE 3
+TOTAL_ROUNDS = 8    # FOR REAL 8 | FOR TESTING USE 3
 
-SLEEP_MINUTES = 15   # FOR REAL 180 minutes (3h = 180 min) | FOR TESTING USE 15
+SLEEP_MINUTES = 180   # FOR REAL 180 minutes (3h=180 min) | FOR TESTING USE 15
 
 
 # ------------------------------- PATHS ------------------------------------
