@@ -5,9 +5,6 @@ import os
 
 # ----------------------------- CONSTANTS -------------------------------------
 
-# PROJECT_ID, PROJECT_NAME = get_project_informations()
-
-
 PERSON_QUANTITY = 100
 
 DEFAULT_PERSON_NAME = 'Stark Bank Person'
@@ -18,7 +15,7 @@ MIN_LIMIT = 8
 
 MAX_LIMIT = 12
 
-WEBHOOK_WAIT_TIME = 1   # minutes | DO NOT CHANGE THIS
+WEBHOOK_WAIT_TIME = 3
 
 DAYS_OF_DUE_DATE = 3
 
@@ -34,7 +31,7 @@ FILE_OPERATION = {
 
 # remove thsi line at the end
 
-NGROK_API_KEY = '2CJOZXfRZdJOZABSJo6g9wXcF9o_6BKYhps9j62ggdLUJHSPV'
+NGROK_API_KEY = '<NGROK_API_KEY>'
 
 
 # ---------------------- MAKE YOUR CHANGES ----------------------------------
