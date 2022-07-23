@@ -25,11 +25,11 @@ Go to file 'utils/config_constants_paths.py' and make your changes to:
 
      git clone https://github.com/idelfrides/StarkBankChallengeFlask.git
 
-### 2 | You gonna need an external lib to make this project works. Accees the link bellow and follow steps defined at that repository.
+### 2 | You gonna need an external lib to make this project works. Access the link bellow and follow steps defined at that repository.
 
 [ACCESS LINK HERE --> ](https://github.com/idelfrides/IJGeneralUsagePackage)
 
-### 3 | Create a sandbox account and  then make login to that environment. project in stark bank sandbox environment or use mine (alredy created)
+### 3 | Create a sandbox account and then make login to that environment. Project in stark bank sandbox environment or use mine (alredy created)
 
      create an account and then make login .
 
@@ -45,24 +45,28 @@ If you are using fish, write
 
      source [your_venv_name]/bin/activate.fish
 
-### 6 | Install requirements
+
+### 6 | Update pip to newest version
+
+     pip install -U pip
+
+### 7 | Install requirements
 
      pip install -r requirements.txt
 
+### 8 | To Set up project fully, first you gonna need to run flask server, like this
 
-### 7 | To Set up all project, first you gonna need to run flask server, like this
-
-     python flask_stark_bank_app.py
+     python flask_stark_bank_app.py  or  python flask_stark_bank_app.py runserver
 
 
-**[WARNING]: Now you goint to need to create a project in stark bank sandbox environment or use mine (alredy created)**
+**[WARNING]: Now, you goint to need to create a project in stark bank sandbox environment or use mine (alredy created)**
 
-### 8 | if you want to use your own project informations, run this curl, otherwise do nothing
+### 9 | if you decided to use **YOUR OWN PROJECT INFORMATIONS**, run this curl, otherwise do nothing
 
      curl "http://localhost:7007/gen_project_keys"
 
 
-**[WARNING]: Now, go to stark bank sandbox environment and  create your project. Keep PROJECT_ID and PROJECT_NAME, you gonna need them.**
+**[WARNING]: Now, go to stark bank sandbox environment and create your project. Keep PROJECT_ID and PROJECT_NAME, you gonna need them.**
 
 
 **NOTE 3: [RECOMENDATION] if you want to use my project informations, do nothing.**
@@ -70,7 +74,7 @@ If you are using fish, write
      My project informations will be used
 
 
-### 9 | INSTALL, CONFIGUE AND RUN NGROK
+### 10 | INSTALL, CONFIGUE AND RUN NGROK. this app is necessary to get stark banck webhook event automaticaly. I will send you a file with those informations
 
 
 1 - INSTALL NGROK
@@ -90,13 +94,13 @@ If you are using fish, write
 **ngrok http <MY_FLASK_PORT>**
 
 
-### 10 | MAKE A CHANGE TO MAKE NGROK API WORKS
+### 11 | MAKE A CHANGE TO MAKE NGROK API WORKS
 In file 'config_contants_paths.py' replace the folling line with the real value present in the file you received.
 
 
 **NGROK_API_KEY = <NGROK_API_KEY>**
 
-### 11 | Now, the Setup will: Create public and private keys, create stark bank project user, create diretories, file RANDOM_PERSON.text, get public url from NGROK API, remove all previous webhook and finaly, create a new webhook . run the folling command just one time.
+### 12 | Now, the Setup will create stark bank project user, create diretories, file RANDOM_PERSON.text, get public url from NGROK API, remove all previous webhook and finaly create a new webhook . Run one of twou folling commands just one time.
 
 **RUN SETUP WITH YOUR PROJECT_ID and PROJECT_NAME**
 
@@ -108,11 +112,11 @@ In file 'config_contants_paths.py' replace the folling line with the real value 
      curl "http://localhost:7007/setup_starkbankapp"
 
 
-### 12 | Now you can run the application using curl. in your
+### 13 | Now you can run the application using curl. In your terminal/shell type:
 
      curl "http://localhost:7007/starkbank_runapp"
 
-### 13 | [OPTIONAL]  You may run test to see results
+### 14 | [OPTIONAL]  You may run test to see results
 
      python tests/test_keys.py
 
