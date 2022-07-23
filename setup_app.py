@@ -33,16 +33,12 @@ from libs.ngrok_lib import (
 
 def setupStarkBanckApp():
 
-
     print_log('START MAKING ALL SETUP . . .')
 
     try:
         os.mkdir('SB_SDK_KEYS')
     except Exception as error:
         print_log(f'EXCEPTION --> {error}')
-
-        # keep this line COMMENTED
-        # clean_diretory(folder_path='SB_SDK_KEYS')
 
 
     try:
