@@ -1,13 +1,18 @@
 # Stark Bank Challenge Project with Flask
 
+
 This is the thecnical challenge for join Stark Bank company as Dev.
 
 ## Language/tools Requirements
 
 **Python 3.8.x**
+
 **Flask newest version**
+
 **pip newest version**
+
 **ngrok newest version**
+
 
 
 **NOTE 1:** some print in some methods are just to see the execution flow because of we are in homolog environment. In the production, they should be removed.
