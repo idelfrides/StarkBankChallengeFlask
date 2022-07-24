@@ -4,14 +4,15 @@
 # vscode
 .vscode/
 
-# the rest
-Jenkinsfile
-
 # external lib work
 IJGeneralUsagePackage
 
 # work
 log/
+stage/
 
 # instance
 main/instance
+
+#venv
+SB_VENV_FLASK/
