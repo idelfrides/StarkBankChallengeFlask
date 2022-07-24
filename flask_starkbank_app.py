@@ -8,7 +8,7 @@ from random import randint
 import time
 
 from starkBankLib import __app__
-from flask import request
+from flask import render_template, request
 
 # external lib importation
 from IJGeneralUsagePackage.IJGeneralLib import (
@@ -26,6 +26,7 @@ from starkBankLib.starkBankLib import (
 from utils.config_contants_paths import (
     SLEEP_MINUTES,TOTAL_ROUNDS,
     MIN_LIMIT, MAX_LIMIT,
+    APP_INFO
 )
 
 from libs.ijlibs import get_project_informations
@@ -41,6 +42,7 @@ from setup_app import setupStarkBanckApp
 #-------------------------------------------------------------------------
 #                  RUN APP FUNCTION BEGIN HERE
 #-------------------------------------------------------------------------
+
 
 def starkBankRunApp(round_):
     """
@@ -86,7 +88,8 @@ def starkBankRunApp(round_):
 @__app__.route('/index')
 @__app__.route('/')
 def hello():
-    return '<h1>HELLO WORLD!!! \n\n MY NAME IS IJ, I AM A FULLSTACK PYTHON DEVELOPER</h1>'
+
+    return APP_INFO
 
 
 @__app__.route('/gen_project_keys')
@@ -111,7 +114,6 @@ def gen_project_keys():
         print_log(f'EXCEPTION --> {error}')
 
     stkb.create_starkbank_keys(key_folder='stage/OUTPUT_FILES')
-
 
     return make_reponse(endpoint='gen_project_keys')
 
@@ -139,7 +141,6 @@ def starkbank_webhook():
 
     if event_status != 'paid':
         return make_reponse('starkbank_webhook | CREATION INVOICE EVENT')
-
 
     PROJECT_ID, PROJECT_NAME = get_project_informations()
 

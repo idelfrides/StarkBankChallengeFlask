@@ -5,7 +5,6 @@
 .vscode/
 
 # external lib work
-IJGeneralUsagePackage
 
 # work
 log/
@@ -15,4 +14,10 @@ stage/
 main/instance
 
 #venv
-SB_VENV_FLASK/
+.dockerignore
+
+ij_dev_testes.py
+
+my_testes_ij.py
+
+not_going_to_github.py

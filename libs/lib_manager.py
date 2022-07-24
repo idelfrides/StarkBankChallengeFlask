@@ -202,6 +202,25 @@ def show_info(some_code, person):
     return
 
 
+def read_content_fromfile(path_dir, file_name):
+    print_log(f'READING content from file [ {file_name} ] . . .')
+
+    chdir_witout_log(workspace=path_dir)
+
+    if not len(str(file_name).split('.')) == 2:
+        file_name = file_name + '.text'
+
+
+    with open(file_name, 'r', encoding='utf-8') as file_obj:
+        file_content = file_obj.read()
+
+
+    print_log('DONE')
+    chdir_witout_log()
+
+    return file_content
+
+
 def make_reponse(endpoint):
 
     ij_jsonify = {
