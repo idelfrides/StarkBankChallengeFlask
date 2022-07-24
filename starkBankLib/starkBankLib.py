@@ -660,7 +660,7 @@ class StarkBank(object):
 
     def create_webhook(self, webhook_url):
 
-        print_log('NEW WEBHOOK CREATION...')
+        print_log('NEW WEBHOOK CREATION . . .')
 
         try:
             new_webhook = starkbank.webhook.create(
@@ -673,17 +673,18 @@ class StarkBank(object):
             print_log(f'EXCEPTION {error}')
 
         else:
-            print_log(f'NEW WEBHOOK ID: {new_webhook.id}')
+            print_log(f'[SUCCESS] NEW WEBHOOK ID: {new_webhook.id}')
         finally:
-            print_log('\n\n NEW WEBHOOK CREATION: FAILED/DONE')
             return
 
 
     def remove_webhook(self):
+        print_log('REMOVING PREVIOUS ALL WEBHOOKs . . .')
 
         webhooks = starkbank.webhook.query()
 
         for webhook in webhooks:
             starkbank.webhook.delete(id=webhook.id)
 
+        print_log('REMOVING WEBHOOKs DONE')
         return
