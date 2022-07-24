@@ -35,7 +35,6 @@ from libs.lib_manager import (
     save_project_informations,
 )
 
-
 from setup_app import setupStarkBanckApp
 
 
@@ -58,8 +57,8 @@ def starkBankRunApp(round_):
         user_key='RUNNING APP | ROUND', user_key_value=round_
     )
 
-    TOTAL_INVOICES = randint(MIN_LIMIT, MAX_LIMIT)
-    # TOTAL_INVOICES = randint(2, 3)
+    # TOTAL_INVOICES = randint(MIN_LIMIT, MAX_LIMIT)
+    TOTAL_INVOICES = randint(2, 3)
 
     PROJECT_ID, PROJECT_NAME = get_project_informations()
 
@@ -90,17 +89,29 @@ def hello():
     return '<h1>HELLO WORLD!!! \n\n MY NAME IS IJ, I AM A FULLSTACK PYTHON DEVELOPER</h1>'
 
 
-@__app__.route('/gen_project_keys', methods=['GET'])
+@__app__.route('/gen_project_keys')
 def gen_project_keys():
 
     stkb = StarkBank()
 
+    '''
+    # FOR REAL
     try:
-        os.mkdir('SB_SDK_KEYS')
+        os.mkdir('stage/SB_SDK_KEYS')
     except Exception as error:
         print_log(f'EXCEPTION --> {error}')
 
-    stkb.create_starkbank_keys(key_folder='SB_SDK_KEYS')
+    stkb.create_starkbank_keys(key_folder='stage/SB_SDK_KEYS')
+    '''
+
+    # for testin this endpint
+    try:
+        os.mkdir('stage/OUTPUT_FILES')
+    except Exception as error:
+        print_log(f'EXCEPTION --> {error}')
+
+    stkb.create_starkbank_keys(key_folder='stage/OUTPUT_FILES')
+
 
     return make_reponse(endpoint='gen_project_keys')
 
@@ -148,7 +159,7 @@ def starkbank_webhook():
     return make_reponse(endpoint='starkbank_webhook | PAID INVOICE EVENT')
 
 
-@__app__.route('/transfer_all_invoices', methods=['GET'])
+@__app__.route('/transfer_all_invoices')
 def transfer_all_invoices():
 
     PROJECT_ID, PROJECT_NAME = get_project_informations()
@@ -164,7 +175,7 @@ def transfer_all_invoices():
     return make_reponse(endpoint='transfer_all_invoices')
 
 
-@__app__.route('/starkbank_runapp', methods=['GET'])
+@__app__.route('/starkbank_runapp')
 def starkbank_runapp():
 
     start_time_ = time.time()
@@ -173,7 +184,7 @@ def starkbank_runapp():
 
     time_sleep_seconds = convert_minutes_to_second(SLEEP_MINUTES)
 
-    clean_diretory(folder_path='OUTPUT_FILES')
+    clean_diretory(folder_path='stage/OUTPUT_FILES')
 
     while True:
 

@@ -1,0 +1,17 @@
+# git
+.git/
+
+# vscode
+.vscode/
+
+# the rest
+Jenkinsfile
+
+# external lib work
+IJGeneralUsagePackage
+
+# work
+log/
+
+# instance
+main/instance

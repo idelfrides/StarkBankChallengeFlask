@@ -22,7 +22,7 @@ def get_project_informations(filename_=None):
         filename_ = 'project_infos.text'
 
     infos = read_content_fromfile(
-        distiny_dir='utils/FILES_DIR',
+        distiny_dir='stage/FILES_DIR',
         file_name=filename_
     )
 

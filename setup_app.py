@@ -36,24 +36,30 @@ def setupStarkBanckApp():
     print_log('START MAKING ALL SETUP . . .')
 
     try:
-        os.mkdir('SB_SDK_KEYS')
+        os.mkdir('stage')
     except Exception as error:
-        print_log(f'EXCEPTION --> {error}')
+        print_log(f'EXCEPTION: {error}')
 
 
     try:
-        os.mkdir('OUTPUT_FILES')
+        os.mkdir('stage/SB_SDK_KEYS')
     except Exception as error:
-        print_log(f'EXCEPTION --> {error}')
-        clean_diretory(folder_path='OUTPUT_FILES')
+        print_log(f'EXCEPTION: {error}')
 
 
     try:
-        os.mkdir('utils/FILES_DIR')
+        os.mkdir('stage/OUTPUT_FILES')
+    except Exception as error:
+        print_log(f'EXCEPTION --> {error}')
+        clean_diretory(folder_path='stage/OUTPUT_FILES')
+
+
+    try:
+        os.mkdir('stage/FILES_DIR')
     except Exception as error:
         print_log(f'EXCEPTION --> {error}')
         clean_diretory(
-            folder_path='utils/FILES_DIR',
+            folder_path='stage/FILES_DIR',
             keet_files=['IJ_NGROK_CONFIG.text', 'project_infos.text']
         )
 
@@ -87,9 +93,8 @@ def create_user_webhook():
 
     public_url = '/'.join([public_url, 'starkbank_webhook'])
 
-    stkb.remove_webhook()
-
-    if public_url:
+    if public_url != '/starkbank_webhook':
+        stkb.remove_webhook()
         time.sleep(2*60)
         stkb.create_webhook(webhook_url=public_url)
 

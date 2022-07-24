@@ -33,19 +33,21 @@ FILE_OPERATION = {
 
 # remove thsi line at the end
 
-NGROK_API_KEY = '<NGROK_API_KEY>'
+# NGROK_API_KEY = '<NGROK_API_KEY>'
+
+NGROK_API_KEY = '2CJOZXfRZdJOZABSJo6g9wXcF9o_6BKYhps9j62ggdLUJHSPV'
 
 
 # ---------------------- MAKE YOUR CHANGES ----------------------------------
 
 # NOTE: make some changes to these two constants to see app working
 
-TOTAL_ROUNDS = 8    # FOR REAL 8 | FOR TESTING USE 3
+TOTAL_ROUNDS = 1    # FOR REAL 8 | FOR TESTING USE 3
 
-SLEEP_MINUTES = 180   # FOR REAL 180 minutes (3h=180 min) | FOR TESTING USE 15
+SLEEP_MINUTES = 15   # FOR REAL 180 minutes (3h=180 min) | FOR TESTING USE 15
 
 
 # ------------------------------- PATHS ------------------------------------
 
 
-RANDOM_PERSON_FILE_PATH = '/'.join([os.path.dirname(os.path.abspath(__file__)), 'FILES_DIR/RANDOM_PERSON.text'])
+RANDOM_PERSON_FILE_PATH = '/'.join([os.path.dirname(os.path.abspath(__file__)), 'stage/FILES_DIR/RANDOM_PERSON.text'])

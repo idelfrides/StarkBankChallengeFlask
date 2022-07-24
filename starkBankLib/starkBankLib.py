@@ -142,7 +142,7 @@ class StarkBank(object):
 
         for one_inv in range(1, total_invoices+1):
 
-            invoice_amount = randint(100, 10000)
+            invoice_amount = randint(100, 1000)
             value_discount = randint(1, 10)
             fine_percentage = randint(1, 3)       # 3 % de multa
 

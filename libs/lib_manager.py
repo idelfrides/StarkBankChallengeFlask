@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-
 """
     #### This module hold attributes and methods necessary to help
     build this app better.
@@ -12,16 +11,9 @@ import requests
 from datetime import datetime
 import time
 
-
 from IJGeneralUsagePackage.IJGeneralLib import (
-    build_line,
     chdir_witout_log,
     print_log
-)
-
-from IJGeneralUsagePackage.IJhandleFilesLib import (
-    read_content_fromfile,
-    readlines_content_fromfile
 )
 
 from utils.config_contants_paths import (
@@ -125,7 +117,7 @@ def write_content_infile(content_list, filename=None, operation=None):
 
     # print_log(f'WRITTING [ {len(cpf_list)} ] CPFs IN FILE [ {file_name} ]...')
 
-    chdir_witout_log(workspace='utils/FILES_DIR')
+    chdir_witout_log(workspace='stage/FILES_DIR')
 
     with open(filename, operation, encoding='utf-8') as file_obj:
         for content_ in content_list:
@@ -140,7 +132,7 @@ def write_content_infile(content_list, filename=None, operation=None):
 
 def write_output_file(**kwarg):
 
-    chdir_witout_log(workspace='OUTPUT_FILES')
+    chdir_witout_log(workspace='stage/OUTPUT_FILES')
 
     filename = kwarg['filename']
     content = str(kwarg['content'])
@@ -157,7 +149,7 @@ def write_output_file(**kwarg):
     return
 
 
-def get_random_person_from_local_file(local_dir='utils/FILES_DIR', filename='RANDOM_PERSON.text'):
+def get_random_person_from_local_file(local_dir='stage/FILES_DIR', filename='RANDOM_PERSON.text'):
 
     # print_log('GETTING ALL CPF FROM LOCAL FILE')
 
@@ -177,7 +169,7 @@ def get_keys_from_files(key_type=''):
 
     # print_log('GETTING [ {} ] KEY FROM FILE ...'.format(key_type))
 
-    chdir_witout_log(workspace='SB_SDK_KEYS')
+    chdir_witout_log(workspace='stage/SB_SDK_KEYS')
 
     if key_type == 'private':
         pk_file_name = 'private-key.pem'
@@ -198,10 +190,10 @@ def get_keys_from_files(key_type=''):
 
 def show_info(some_code, person):
     info = """
-    -----------------------------------------------
-            CREATING INVOICE FOR --> [ {} ]
-            INVOICE ORDER --> [ {} ]
-    -----------------------------------------------
+    ---------------------------------------------------------------------------
+        CREATING INVOICE FOR --> [ {} ]
+        INVOICE ORDER --> [ {} ]
+    ---------------------------------------------------------------------------
     """.format(person, some_code)
 
     print(info)
