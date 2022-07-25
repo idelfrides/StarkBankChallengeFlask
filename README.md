@@ -68,7 +68,7 @@ If you are using fish, write
 
 ### 9 | if you decided to use **YOUR OWN PROJECT INFORMATIONS**, run this curl, otherwise do nothing
 
-     curl "http://localhost:7007/gen_project_keys"
+     curl "http://localhost:7000/gen_project_keys"
 
 
 **[WARNING]: Now, go to stark bank sandbox environment and create your project. Keep PROJECT_ID and PROJECT_NAME, you gonna need them.**
@@ -109,17 +109,17 @@ In file 'config_contants_paths.py' replace the folling line with the real value 
 
 **RUN SETUP WITH YOUR PROJECT_ID and PROJECT_NAME**
 
-     curl "http://localhost:7007/setup_starkbankapp/<PROJECT_ID>/<PROJECT_NAME>"
+     curl "http://localhost:7000/setup_starkbankapp/<PROJECT_ID>/<PROJECT_NAME>"
 
 
 **RUN SETUP WITH MY PROJECT_ID and PROJECT_NAME**
 
-     curl "http://localhost:7007/setup_starkbankapp"
+     curl "http://localhost:7000/setup_starkbankapp"
 
 
 ### 13 | Now you can run the application using curl. In your terminal/shell type:
 
-     curl "http://localhost:7007/starkbank_runapp"
+     curl "http://localhost:7000/starkbank_runapp"
 
 ### 14 | [OPTIONAL]  You may run test to see results
 
