@@ -59,8 +59,7 @@ def starkBankRunApp(round_):
         user_key='RUNNING APP | ROUND', user_key_value=round_
     )
 
-    # TOTAL_INVOICES = randint(MIN_LIMIT, MAX_LIMIT)
-    TOTAL_INVOICES = randint(2, 3)
+    TOTAL_INVOICES = randint(MIN_LIMIT, MAX_LIMIT)
 
     PROJECT_ID, PROJECT_NAME = get_project_informations()
 
@@ -97,7 +96,7 @@ def gen_project_keys():
 
     stkb = StarkBank()
 
-    '''
+    
     # FOR REAL
     try:
         os.mkdir('stage/SB_SDK_KEYS')
@@ -105,16 +104,7 @@ def gen_project_keys():
         print_log(f'EXCEPTION --> {error}')
 
     stkb.create_starkbank_keys(key_folder='stage/SB_SDK_KEYS')
-    '''
-
-    # for testin this endpint
-    try:
-        os.mkdir('stage/OUTPUT_FILES')
-    except Exception as error:
-        print_log(f'EXCEPTION --> {error}')
-
-    stkb.create_starkbank_keys(key_folder='stage/OUTPUT_FILES')
-
+    
     return make_reponse(endpoint='gen_project_keys')
 
 
